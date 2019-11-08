@@ -50,6 +50,10 @@
             <input type="submit" id="changeStatusbutton" value="change">
         </p>
     </div>
+
+    <jsp:include page="chatbox.jsp">
+        <jsp:param name="title" value="Chatbox"/>
+    </jsp:include>
 </main>
 
 <jsp:include page="footer.jsp">

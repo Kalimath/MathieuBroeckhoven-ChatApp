@@ -20,11 +20,11 @@ $(function(){
         let src = arrow.attr('src');
 
         $('.chat-body').slideToggle('fast');
-        if(src == 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png'){
-            arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_up-16.png');
+        if(src == 'images/arrow-down-32.png'){
+            arrow.attr('src', 'images/arrow-up-32.png');
         }
         else{
-            arrow.attr('src', 'https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png');
+            arrow.attr('src', 'images/arrow-down-32.png');
         }
     });
 

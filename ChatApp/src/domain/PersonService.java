@@ -3,8 +3,8 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.PersonRepository;
-import db.PersonRepositoryStub;
+import db.person.PersonRepository;
+import db.person.PersonRepositoryStub;
 
 public class PersonService {
 	private PersonRepository personRepository = new PersonRepositoryStub();

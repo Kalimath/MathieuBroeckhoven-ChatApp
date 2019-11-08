@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +44,7 @@ public class Controller extends HttpServlet {
         if (action != null) {
             RequestHandler handler;
             try {
-                handler = controllerFactory.getController(action, model);
+                handler = controllerFactory.getController(action, model, messageService);
                 handler.handleRequest(request, response);
             } catch (NotAuthorizedException exc) {
                 List<String> errors = new ArrayList<String>();

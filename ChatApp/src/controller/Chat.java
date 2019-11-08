@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Message;
+import domain.MessageService;
 import domain.Person;
 
 import javax.servlet.http.HttpServletRequest;

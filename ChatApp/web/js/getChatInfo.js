@@ -41,13 +41,13 @@ function getFriendsData() {
                             td.appendChild(document.createTextNode(serverResponse[i].userId));
                             tr.appendChild(td);
                             //friendlist.push(serverResponse[i].userId);
-                        } /*else if (j === 2) {
+                        }else if (j === 2) {
                             let td = document.createElement('td');
                             let str = '<button id="' + serverResponse[i].userId + '" onclick="openChat(\'' + serverResponse[i].userId + '\');">Message</button>'
                             td.innerHTML = str;
                             tr.appendChild(td);
                             friendlist.push(serverResponse[i].userId);
-                        }*/
+                        }
                     }
                     tbody.appendChild(tr);
                 }

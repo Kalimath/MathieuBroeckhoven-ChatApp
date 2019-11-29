@@ -3,15 +3,17 @@
 <div class="wrapper">
     <div class="chat-box">
         <div class="chat-head">
-            <h4 style="color: white; font-size: 30px;">Chat Box</h4>
+            <h4 style="color: gray; font-size: 30px;">Chat Box</h4>
             <img src="images/arrow-down-32.png" title="Expand Arrow" alt="Expand Arrow" width="16" height="16" style="color: white;">
         </div>
         <div class="chat-body">
+            <%--   MSG-INSERT ==  alle berichten  --%>
             <div class="msg-insert">
             </div>
-            <div class="chat-text">
-                <input type="text" class="chat" placeholder="Send">
-            </div>
+
+        </div>
+        <div class="chat-text">
+            <input type="text" class="chat" placeholder="Send">
         </div>
     </div>
 </div>

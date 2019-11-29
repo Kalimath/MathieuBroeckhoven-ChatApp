@@ -142,3 +142,7 @@ nav ul li a#actual {
 nav ul li#current {
 	border-bottom: 1px solid black;
 }
+
+.msg-send{
+	text-align: right;
+}

@@ -1,7 +1,9 @@
 let username =  $('#userId').text();
+let chatToUser = $('.chat-head h4').text();
 let currentChatObject = $('.chat-head h4');
 let currentChat;
-let messages = [];
+
+
 
 class Message {
     constructor(sender, receiver, message, number) {
@@ -40,30 +42,37 @@ $(function(){
             $this.val('');
             uriMsg = '';
         }
+
+
     });
 
 });
 
+
+
 function getMessages() {
-    $.ajax({url: "Controller?action=Chat&chat=" + currentChat, method: "GET", success: function (result) {
-        writeChat(result);
-    }});
+    $.getJSON("Controller?action=Chat&chat=" + currentChat, function(result) {
+        console.log(result);
+            writeChat(result);
+
+        }
+    ).always((data)=>{console.log(data)});
 }
 
-function writeChat(text) {
-    let parsedText = JSON.parse(text);
-    for (let i = 0; i < parsedText.length; i++) {
-        if ($.inArray(parsedText[i].volgnummer, messages) === -1) {
-            if (parsedText[i].sender === username) {
-                $('.msg-insert').append("<div class='msg-send'>"+ parsedText[i].message +"</div>");
-                messages.push(parsedText[i].volgnummer);
-            } else {
-                $('.msg-insert').append("<div class='msg-receive'>"+ parsedText[i].message +"</div>");
-                messages.push(parsedText[i].volgnummer);
+//moet met polling (dus niet zoals hierboven), messages array moet nog gevuld worden
+function writeChat(res) {
+        console.log(res);
+            $( ".msg-insert" ).empty(); // clears div met alle berichten
+            //alles hieronder is nog niet af
+
+            for(let x = 0 ; x < res.length; x++){
+                    if (res[x].sender === username) {
+                        $('.msg-insert').append("<div class='msg-send'>me: "+ res[x].message +"</div>");
+                    } else {
+                        $('.msg-insert').append("<div class='msg-receive'>"+ res[x].message +"</div>");
+                    }
             }
-        }
-    }
-}
+};
 
 function openChat(userId) {
     currentChatObject.text(userId);

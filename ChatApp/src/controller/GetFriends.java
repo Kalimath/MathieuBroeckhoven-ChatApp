@@ -21,12 +21,10 @@ public class GetFriends extends RequestHandler {
             userJSON = mapper.writeValueAsString(getPersonService().getAllFriends(user.getUserId()));
             response.setContentType("application/json");
             response.getWriter().write(userJSON);
-            System.out.println(userJSON);
         }catch (Exception e){
             userJSON = mapper.writeValueAsString(new ArrayList<String>());
             response.setContentType("application/json");
             response.getWriter().write(userJSON);
-            System.out.println(userJSON);
             e.printStackTrace();
         }
     }

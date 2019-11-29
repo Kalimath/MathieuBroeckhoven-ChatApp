@@ -26,9 +26,9 @@ public class Chat extends RequestHandler {
             response.setContentType("application/json");
             response.getWriter().write(toJSON(getRelevantMessages(user.getUserId(), request.getParameter("chat"))));
         } else if(request.getParameter("chat") == null) {
-            addMessage(request.getParameter("message"));
+            addMessage(request.getParameter("message"),user);
         }
-        response.getWriter().write("200");
+        response.setStatus(200);
     }
 
     private ArrayList<Message> getRelevantMessages(String userId, String chat) {
@@ -43,7 +43,7 @@ public class Chat extends RequestHandler {
         return newMessages;
     }
 
-    public void addMessage(String message) throws IOException {
+    public void addMessage(String message, Person user) throws IOException {
         JsonNode node = new ObjectMapper().readTree(message);
         ArrayList<Message> relMessages = getRelevantMessages(node.get("sender").asText(), node.get("receiver").asText());
         int biggest = 0;
@@ -53,9 +53,10 @@ public class Chat extends RequestHandler {
             }
         }
 
-        if (message != null) {
+        if (message != null&&user!=null) {
             try {
-                Message m = new Message(node.get("sender").asText(), node.get("receiver").asText(), node.get("message").asText(), biggest + 1);
+                //node.get("sender").asText()
+                Message m = new Message(user.getUserId(), node.get("receiver").asText(), node.get("message").asText(), biggest + 1);
                 messages.addMessage(m);
             } catch (Exception e) {
                 System.out.println(e.getMessage());

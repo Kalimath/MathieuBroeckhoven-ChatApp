@@ -10,11 +10,13 @@
                     <li id="actual"><a href="Controller?action=Home">Home</a></li>
                     <li><a href="chat.jsp">Chat</a></li>
                     <li><a href="blog.jsp">Blog</a></li>
+                    <li><a href="registerForm.jsp">Register</a></li>
 
                 </c:when>
                 <c:otherwise>
                     <li><a href="Controller">Home</a></li>
                     <li><a href="blog.jsp">Blog</a></li>
+                    <li><a href="registerForm.jsp">Blog</a></li>
                 </c:otherwise>
             </c:choose>
 

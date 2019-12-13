@@ -13,21 +13,20 @@ import java.util.regex.Pattern;
 
 public class Person {
 
-	private String userId;
-	private String password;
-	private String salt;
-	private String firstName;
-	private String lastName;
+	private String userId,password,salt,firstName,lastName,gender;
+	private int age;
 	private Role role;
 	private String status;
 	private List<String> friends = new ArrayList<>();
 
-	public Person(String userId, String password, String firstName,
-			String lastName,Role role) {
+	public Person(String userId, String password, String firstName,String lastName, int age, String gender,
+			Role role) {
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
 		setLastName(lastName);
+		setAge(age);
+		setGender(gender);
 		setRole(role);
 		setStatus(null);
 
@@ -48,6 +47,27 @@ public class Person {
 
 	public Person() {
 
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		if(gender.toLowerCase().equals("male")||gender.toLowerCase().equals("female")){
+			this.gender = gender;
+		}else{
+			throw new IllegalArgumentException("gender is invalid");
+		}
+
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public List<String> getFriends() {

@@ -46,7 +46,7 @@ function getFriendsData() {
                             let str = '<button id="' + serverResponse[i].userId + '" onclick="openChat(\'' + serverResponse[i].userId + '\');">Message</button>'
                             td.innerHTML = str;
                             tr.appendChild(td);
-                            friendlist.push(serverResponse[i].userId);
+                            //friendlist.push(serverResponse[i].userId);
                         }
                     }
                     tbody.appendChild(tr);
